@@ -7,7 +7,8 @@
     String password = request.getParameter("password");
     boolean isValidUser = false;
 
-    if (username != null && password != null) {
+    // Verificar si los parámetros son null o vacíos
+    if (username != null && !username.trim().isEmpty() && password != null && !password.trim().isEmpty()) {
         Connection conexion = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -27,7 +28,7 @@
                 request.getSession().setAttribute("usuario", username);
                 response.sendRedirect("menu.jsp");
             } else {
-                response.sendRedirect("index.jsp?error=1"); // Usuario no válido
+                response.sendRedirect("index.jsp?error=1"); // Usuario o contraseña no válidos
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,6 +39,7 @@
             if (conexion != null) try { conexion.close(); } catch (SQLException ignore) {}
         }
     } else {
-        response.sendRedirect("index.jsp?error=3"); // Faltan parámetros
+        response.sendRedirect("index.jsp?error=3"); // Faltan parámetros o están vacíos
     }
 %>
+

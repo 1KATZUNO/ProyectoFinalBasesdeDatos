@@ -18,8 +18,8 @@
             <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.zarla.com%2Fes%2Fgu%25C3%25ADas%2Flogos-para-medicina-interna&psig=AOvVaw2wzGnb7n2xJ04Adg_iXpik&ust=1731609088622000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCR8db42YkDFQAAAAAdAAAAABAE">
         </div>
         <nav class="menu">
-            <a href="Editar_Actividades.jsp">Mantenimiento tabla 2</a>
-            <a href="mantenimiento.jsp">Mantenimiento tabla 1</a>
+            <a href="Mantenimiento_Pacientes.jsp">Mantenimiento tabla 2</a>
+            <a href="Mantenimiento_Doctores.jsp">Mantenimiento tabla 1</a>
             <a href="copyright.jsp">Copyright</a>
         </nav>
     </div>
