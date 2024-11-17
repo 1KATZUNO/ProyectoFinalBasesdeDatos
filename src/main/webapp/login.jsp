@@ -13,27 +13,31 @@
         ResultSet rs = null;
         try {
             conexion = ConexionBaseDatos.obtenerConexion();
-            String sql = "SELECT * FROM mad WHERE username = ? AND password = ?";
+            
+            // Llamar al procedimiento almacenado
+            String sql = "{CALL ValidarUsuario(?, ?)}"; // Sintaxis para invocar el procedimiento
             ps = conexion.prepareStatement(sql);
-            ps.setString(1, username);
-            ps.setString(2, password);
+            ps.setString(1, username); // Pasar el primer parámetro
+            ps.setString(2, password); // Pasar el segundo parámetro
             rs = ps.executeQuery();
+
+            // Verificar si se devuelve un resultado válido
             if (rs.next()) {
                 isValidUser = true;
                 request.getSession().setAttribute("usuario", username);
                 response.sendRedirect("menu.jsp");
             } else {
-                response.sendRedirect("index.jsp?error=1");
+                response.sendRedirect("index.jsp?error=1"); // Usuario no válido
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("index.jsp?error=2&mensaje=" + e.getMessage());
+            response.sendRedirect("index.jsp?error=2&mensaje=" + e.getMessage()); // Error en la base de datos
         } finally {
             if (rs != null) try { rs.close(); } catch (SQLException ignore) {}
             if (ps != null) try { ps.close(); } catch (SQLException ignore) {}
             if (conexion != null) try { conexion.close(); } catch (SQLException ignore) {}
         }
     } else {
-        response.sendRedirect("index.jsp?error=3");
+        response.sendRedirect("index.jsp?error=3"); // Faltan parámetros
     }
 %>

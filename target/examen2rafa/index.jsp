@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="Login.css">
 </head>
 <body>
-    <div class="body"></div>
     <div class="grad"></div>
     <div class="header">
         <div>Hospi<span>tal.ktz</span></div>
