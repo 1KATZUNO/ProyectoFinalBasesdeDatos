@@ -24,7 +24,7 @@
                 <option value="M">Masculino</option>
                 <option value="F">Femenino</option>
             </select>
-            <input type="text" name="año_nacimiento" placeholder="Año de Nacimiento" required>
+            <input type="number" name="año_nacimiento" placeholder="Año de Nacimiento" required>
             <button type="submit">Agregar Usuario</button>
         </form>
     </div>
